@@ -1,0 +1,86 @@
+{
+  "run_id": "f64897",
+  "question": "每周可以远程办公几天？",
+  "status": "answered",
+  "status_label": "已回答",
+  "answer": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。",
+  "citations": [
+    {
+      "doc_id": "D04",
+      "para_id": "D04#p1",
+      "title": "远程办公管理办法（2023版）",
+      "version_date": "2023-03-01",
+      "quote": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。"
+    }
+  ],
+  "conflicts": [],
+  "gaps": [],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [
+    "D04#p1"
+  ],
+  "steps_used": 3,
+  "max_steps": 10,
+  "provider": {
+    "name": "mock",
+    "model": "mock-local",
+    "is_mock": true
+  },
+  "kb": "default",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "每周可以远程办公几天？",
+        "top_k": 4
+      },
+      "reason": "先检索相关制度",
+      "ok": true,
+      "observation_summary": "命中 3 条：D04#p1[每周,远程,程办,办公]、D05#p2[每周,远程,程办,办公]、D05#p1[远程,程办,办公]",
+      "observation": "{\"ok\": true, \"query\": \"每周可以远程办公几天？\", \"query_terms\": [\"每周\", \"周可\", \"以远\", \"远程\", \"程办\", \"办公\", \"公几\", \"几天\"], \"hits\": [{\"doc_id\": \"D04\", \"para_id\": \"D04#p1\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"score\": 7.8078, \"matched_terms\": [\"每周\", \"远程\", \"程办\", \"办公\"], \"preview\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p2\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"score\": 7.8078, \"matched_terms\": [\"每周\", \"远程\", \"程办\", \"办公\"], \"preview\": \"员工每周最多可申请 2 天远程办公，需提前一天经直属上级审批。\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p1\", \"title\": \"远程办公管理办法（2024修订）\", \"version_dat",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D04"
+      },
+      "reason": "读取命中文档原文",
+      "ok": true,
+      "observation_summary": "读取 D04《远程办公管理办法（2023版）》1 段，版本 2023-03-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D04\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"scope\": \"全体员工\", \"supersedes\": \"\", \"paragraphs\": [{\"para_id\": \"D04#p1\", \"text\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}], \"remaining_steps\": 8}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "submit_answer",
+      "args": {
+        "status": "answered",
+        "answer": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。",
+        "citations": [
+          {
+            "para_id": "D04#p1",
+            "quote": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。"
+          }
+        ],
+        "conflicts": [],
+        "gaps": [],
+        "clarifying_question": "",
+        "clarify_options": []
+      },
+      "reason": "已获得原文，引用段落全文作答",
+      "ok": true,
+      "observation_summary": "已接受：answered",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"answered\", \"answer\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\", \"citations\": [{\"doc_id\": \"D04\", \"para_id\": \"D04#p1\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"quote\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}], \"conflicts\": [], \"gaps\": [], \"clarifying_question\": \"\", \"clarify_options\": []}, \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 0
+}

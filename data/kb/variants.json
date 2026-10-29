@@ -1,0 +1,6 @@
+{
+  "default":      {"description": "完整知识库（含 D01/D02 报销期限冲突）", "exclude": [], "extra": []},
+  "no_conflict":  {"description": "移除 D02，仅保留 D01", "exclude": ["D02"], "extra": []},
+  "scoped_d02":   {"description": "D02 替换为注明仅适用差旅费用的版本", "exclude": [], "extra": ["D02_scoped.md"]},
+  "no_supersede": {"description": "D05 去掉替代声明，与 D04 构成不可消解冲突", "exclude": [], "extra": ["D05_no_supersede.md"]}
+}

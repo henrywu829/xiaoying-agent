@@ -1,0 +1,7 @@
+{
+  "question": "工卡丢了怎么补办？",
+  "kb": "default",
+  "faults": {
+    "search_docs": "fail_always"
+  }
+}

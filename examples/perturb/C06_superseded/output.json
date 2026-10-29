@@ -1,0 +1,173 @@
+{
+  "run_id": "8306d6",
+  "question": "每周可以远程办公几天？",
+  "status": "answered",
+  "status_label": "已回答",
+  "answer": "按现行《远程办公管理办法（2024修订）》，员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。该版本自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》（原规定为每周最多 1 天）同时废止。",
+  "citations": [
+    {
+      "doc_id": "D05",
+      "para_id": "D05#p2",
+      "title": "远程办公管理办法（2024修订）",
+      "version_date": "2024-09-01",
+      "quote": "员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。"
+    },
+    {
+      "doc_id": "D05",
+      "para_id": "D05#p1",
+      "title": "远程办公管理办法（2024修订）",
+      "version_date": "2024-09-01",
+      "quote": "本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。"
+    },
+    {
+      "doc_id": "D04",
+      "para_id": "D04#p1",
+      "title": "远程办公管理办法（2023版）",
+      "version_date": "2023-03-01",
+      "quote": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。"
+    }
+  ],
+  "conflicts": [
+    {
+      "topic": "每周远程办公可申请天数",
+      "positions": [
+        {
+          "para_id": "D04#p1",
+          "claim": "每周最多可申请 1 天远程办公"
+        },
+        {
+          "para_id": "D05#p2",
+          "claim": "每周最多可申请 9 天远程办公"
+        }
+      ],
+      "resolution": "resolved_by_doc",
+      "basis": "2024修订版明确写明自 2024 年 9 月 1 日起施行且原2023版同时废止，故按2024修订版执行。",
+      "basis_para_id": "D05#p1",
+      "basis_quote": "本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。"
+    }
+  ],
+  "gaps": [
+    "《远程办公管理办法（2024修订）》原文写为“每周最多可申请 9 天”，与自然周天数不符，疑为文本笔误，建议与人力资源部门核实是否为 1 天或其他上限。"
+  ],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [
+    "D04#p1",
+    "D05#p1",
+    "D05#p2"
+  ],
+  "steps_used": 5,
+  "max_steps": 10,
+  "provider": {
+    "name": "openai_compat",
+    "model": "deepseek-flash",
+    "is_mock": false
+  },
+  "kb": "default",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "远程办公"
+      },
+      "reason": "检索远程办公制度",
+      "ok": true,
+      "observation_summary": "命中 3 条：D04#p1[远程,程办,办公]、D05#p1[远程,程办,办公]、D05#p2[远程,程办,办公]",
+      "observation": "{\"ok\": true, \"query\": \"远程办公\", \"query_terms\": [\"远程\", \"程办\", \"办公\"], \"hits\": [{\"doc_id\": \"D04\", \"para_id\": \"D04#p1\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"score\": 6.0526, \"matched_terms\": [\"远程\", \"程办\", \"办公\"], \"preview\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p1\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"score\": 6.0526, \"matched_terms\": [\"远程\", \"程办\", \"办公\"], \"preview\": \"本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p2\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"score\": 6.0526, \"matc",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "search_docs",
+      "args": {
+        "query": "居家办公 每周 天数"
+      },
+      "reason": "同义词检索办公天数规定",
+      "ok": true,
+      "observation_summary": "命中 2 条：D04#p1[办公,每周]、D05#p2[办公,每周]",
+      "observation": "{\"ok\": true, \"query\": \"居家办公 每周 天数\", \"query_terms\": [\"居家\", \"家办\", \"办公\", \"每周\", \"天数\"], \"hits\": [{\"doc_id\": \"D04\", \"para_id\": \"D04#p1\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"score\": 3.7727, \"matched_terms\": [\"办公\", \"每周\"], \"preview\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p2\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"score\": 3.7727, \"matched_terms\": [\"办公\", \"每周\"], \"preview\": \"员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。\"}], \"remaining_steps\": 8}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D04"
+      },
+      "reason": "读取2023版原文与适用范围",
+      "ok": true,
+      "observation_summary": "读取 D04《远程办公管理办法（2023版）》1 段，版本 2023-03-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D04\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"scope\": \"全体员工\", \"supersedes\": \"\", \"paragraphs\": [{\"para_id\": \"D04#p1\", \"text\": \"员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。\"}], \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 4,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D05"
+      },
+      "reason": "读取2024修订版原文与替代说明",
+      "ok": true,
+      "observation_summary": "读取 D05《远程办公管理办法（2024修订）》2 段，版本 2024-09-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D05\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"scope\": \"全体员工\", \"supersedes\": \"D04\", \"paragraphs\": [{\"para_id\": \"D05#p1\", \"text\": \"本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。\"}, {\"para_id\": \"D05#p2\", \"text\": \"员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。\"}], \"remaining_steps\": 6}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 5,
+      "action": "submit_answer",
+      "args": {
+        "status": "answered",
+        "answer": "按现行《远程办公管理办法（2024修订）》，员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。该版本自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》（原规定为每周最多 1 天）同时废止。",
+        "citations": [
+          {
+            "para_id": "D05#p2",
+            "quote": "员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。"
+          },
+          {
+            "para_id": "D05#p1",
+            "quote": "本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。"
+          },
+          {
+            "para_id": "D04#p1",
+            "quote": "员工每周最多可申请 1 天远程办公，需提前一天经直属上级审批。"
+          }
+        ],
+        "conflicts": [
+          {
+            "topic": "每周远程办公可申请天数",
+            "positions": [
+              {
+                "para_id": "D04#p1",
+                "claim": "每周最多可申请 1 天远程办公"
+              },
+              {
+                "para_id": "D05#p2",
+                "claim": "每周最多可申请 9 天远程办公"
+              }
+            ],
+            "resolution": "resolved_by_doc",
+            "basis": "2024修订版明确写明自 2024 年 9 月 1 日起施行且原2023版同时废止，故按2024修订版执行。",
+            "basis_para_id": "D05#p1",
+            "basis_quote": "本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。"
+          }
+        ],
+        "gaps": [
+          "《远程办公管理办法（2024修订）》原文写为“每周最多可申请 9 天”，与自然周天数不符，疑为文本笔误，建议与人力资源部门核实是否为 1 天或其他上限。"
+        ]
+      },
+      "reason": "2024修订版明确废止2023版，按现行制度作答",
+      "ok": true,
+      "observation_summary": "已接受：answered",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"answered\", \"answer\": \"按现行《远程办公管理办法（2024修订）》，员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。该版本自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》（原规定为每周最多 1 天）同时废止。\", \"citations\": [{\"doc_id\": \"D05\", \"para_id\": \"D05#p2\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"quote\": \"员工每周最多可申请 9 天远程办公，需提前一天经直属上级审批。\"}, {\"doc_id\": \"D05\", \"para_id\": \"D05#p1\", \"title\": \"远程办公管理办法（2024修订）\", \"version_date\": \"2024-09-01\", \"quote\": \"本办法自 2024 年 9 月 1 日起施行，原《远程办公管理办法（2023版）》同时废止。\"}, {\"doc_id\": \"D04\", \"para_id\": \"D04#p1\", \"title\": \"远程办公管理办法（2023版）\", \"version_date\": \"2023-03-01\", \"quot",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 6867
+}

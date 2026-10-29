@@ -1,0 +1,15 @@
+{
+  "question": "那试用期的呢？",
+  "kb": "default",
+  "history": [
+    {
+      "role": "user",
+      "content": "年假有几天？"
+    },
+    {
+      "role": "assistant",
+      "content": "根据《年休假管理规定》（D03），正式员工累计工作满 1 年不满 10 年的，年休假 5 天；满 10 年不满 20 年的，年休假 10 天。"
+    }
+  ],
+  "mock": true
+}

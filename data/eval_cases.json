@@ -1,0 +1,66 @@
+[
+  {"id": "C01_direct", "title": "明确答案", "covers": ["明确答案"],
+   "request": {"question": "工卡丢了怎么补办？", "kb": "default"},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D06"], "answer_contains_any": ["OA", "20"]}},
+
+  {"id": "C02_paraphrase", "title": "改写相似问题", "covers": ["改写后的相似问题"],
+   "request": {"question": "进公司刷的那张卡找不着了，咋整？", "kb": "default"},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D06"], "answer_contains_any": ["OA", "20", "工卡", "补办"]}},
+
+  {"id": "C03_conflict", "title": "文档冲突", "covers": ["文档冲突"],
+   "request": {"question": "报销期限是多久？", "kb": "default"},
+   "expect": {"status": ["conflict"], "must_cite_docs": ["D01", "D02"], "min_clarify_options": 2,
+              "answer_contains_any": ["30", "15"]}},
+
+  {"id": "C04_conflict_removed", "title": "替换文档→动作变化", "covers": ["文档冲突", "替换文档"],
+   "request": {"question": "报销期限是多久？", "kb": "no_conflict"},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D01"], "must_not_cite_docs": ["D02"],
+              "answer_contains_any": ["30"]}},
+
+  {"id": "C05_conflict_scoped", "title": "替换文档→可消解", "covers": ["文档冲突", "替换文档"],
+   "request": {"question": "报销期限是多久？", "kb": "scoped_d02"},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D01", "D02"], "answer_contains_any": ["15"]}},
+
+  {"id": "C06_superseded", "title": "可消解冲突（替代声明）", "covers": ["文档冲突"],
+   "request": {"question": "每周可以远程办公几天？", "kb": "default"},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D05"], "answer_contains_any": ["2"],
+              "conflict_resolution": "resolved_by_doc"}},
+
+  {"id": "C07_out_of_scope", "title": "资料外问题", "covers": ["资料外问题"],
+   "request": {"question": "公司明年的股价目标是多少？", "kb": "default"},
+   "expect": {"status": ["no_evidence"], "max_citations": 0}},
+
+  {"id": "C08_followup", "title": "上下文追问", "covers": ["上下文追问"],
+   "request": {"question": "那试用期的呢？", "kb": "default",
+               "history": [{"role": "user", "content": "年假有几天？"},
+                           {"role": "assistant", "content": "根据《年休假管理规定》（D03），正式员工累计工作满 1 年不满 10 年的，年休假 5 天；满 10 年不满 20 年的，年休假 10 天。"}]},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D03"], "answer_contains_any": ["不享受", "事假"]}},
+
+  {"id": "C09_tool_fail_once", "title": "工具失败→重试成功", "covers": ["工具失败"],
+   "request": {"question": "工卡丢了怎么补办？", "kb": "default", "faults": {"search_docs": "fail_once"}},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D06"], "answer_contains_any": ["OA", "20"]}},
+
+  {"id": "C10_tool_fail_always", "title": "工具失败→如实失败", "covers": ["工具失败"],
+   "request": {"question": "工卡丢了怎么补办？", "kb": "default", "faults": {"search_docs": "fail_always"}},
+   "expect": {"status": ["tool_error", "incomplete"], "max_citations": 0}},
+
+  {"id": "C11_step_limit", "title": "步数上限", "covers": ["步数上限"],
+   "request": {"question": "报销期限是多久？", "kb": "default", "max_steps": 2},
+   "expect": {"status": ["incomplete"]}},
+
+  {"id": "C12_ambiguous", "title": "追问澄清", "covers": ["追问澄清"],
+   "request": {"question": "这个要多久？", "kb": "default"},
+   "expect": {"status": ["need_clarification", "no_evidence"]}},
+
+  {"id": "C13_no_supersede", "title": "不可消解冲突（与 C06 对照）", "covers": ["文档冲突", "替换文档"],
+   "request": {"question": "每周可以远程办公几天？", "kb": "no_supersede"},
+   "expect": {"status": ["conflict"], "must_cite_docs": ["D04", "D05"], "min_clarify_options": 2,
+              "answer_contains_any": ["1", "2"]}},
+
+  {"id": "C14_pick_option", "title": "点选澄清后继续", "covers": ["追问澄清", "上下文追问"],
+   "request": {"question": "我适用《关于加强报销时效管理的通知》", "kb": "default",
+               "history": [{"role": "user", "content": "报销期限是多久？"},
+                           {"role": "assistant", "content": "现有两份制度对报销期限规定不一致：D01 规定 30 天，D02 规定 15 天，且未说明适用范围或替代关系。\n请确认您适用哪份制度？"}]},
+   "expect": {"status": ["answered"], "must_cite_docs": ["D02"], "answer_contains_any": ["15"],
+              "conflict_resolution": "resolved_by_user"}}
+]

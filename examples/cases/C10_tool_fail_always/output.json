@@ -1,0 +1,87 @@
+{
+  "run_id": "956325",
+  "question": "工卡丢了怎么补办？",
+  "status": "tool_error",
+  "status_label": "工具失败",
+  "answer": "抱歉，知识库检索服务当前连续超时，我暂时无法查到工卡补办的相关制度原文，因此不能给出准确答复。请稍后重试，或联系行政/人力资源部门咨询。",
+  "citations": [],
+  "conflicts": [],
+  "gaps": [
+    "检索工具 search_docs 连续 3 次返回“检索服务超时”，未能获得任何检索结果",
+    "未读取到任何文档，缺少工卡（工作证）遗失补办流程、办理部门、所需材料与费用等制度原文"
+  ],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [],
+  "steps_used": 4,
+  "max_steps": 10,
+  "provider": {
+    "name": "openai_compat",
+    "model": "deepseek-flash",
+    "is_mock": false
+  },
+  "kb": "default",
+  "faults": {
+    "search_docs": "fail_always"
+  },
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "工卡丢失补办"
+      },
+      "reason": "检索工卡补办流程",
+      "ok": false,
+      "observation_summary": "失败：timeout（检索服务超时）",
+      "observation": "{\"ok\": false, \"error\": {\"type\": \"timeout\", \"message\": \"检索服务超时\", \"retryable\": true}, \"remaining_steps\": 9}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "search_docs",
+      "args": {
+        "query": "工作证 遗失 补办 流程"
+      },
+      "reason": "同义词检索工作证遗失补办",
+      "ok": false,
+      "observation_summary": "失败：timeout（检索服务超时）",
+      "observation": "{\"ok\": false, \"error\": {\"type\": \"timeout\", \"message\": \"检索服务超时\", \"retryable\": true}, \"remaining_steps\": 8}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "search_docs",
+      "args": {
+        "query": "工卡"
+      },
+      "reason": "超时后换简短关键词重试",
+      "ok": false,
+      "observation_summary": "失败：timeout（检索服务超时）",
+      "observation": "{\"ok\": false, \"error\": {\"type\": \"timeout\", \"message\": \"检索服务超时\", \"retryable\": true}, \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 4,
+      "action": "submit_answer",
+      "args": {
+        "status": "tool_error",
+        "answer": "抱歉，知识库检索服务当前连续超时，我暂时无法查到工卡补办的相关制度原文，因此不能给出准确答复。请稍后重试，或联系行政/人力资源部门咨询。",
+        "gaps": [
+          "检索工具 search_docs 连续 3 次返回“检索服务超时”，未能获得任何检索结果",
+          "未读取到任何文档，缺少工卡（工作证）遗失补办流程、办理部门、所需材料与费用等制度原文"
+        ]
+      },
+      "reason": "检索工具连续3次超时，无法获取任何文档",
+      "ok": true,
+      "observation_summary": "已接受：tool_error",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"tool_error\", \"answer\": \"抱歉，知识库检索服务当前连续超时，我暂时无法查到工卡补办的相关制度原文，因此不能给出准确答复。请稍后重试，或联系行政/人力资源部门咨询。\", \"citations\": [], \"conflicts\": null, \"gaps\": [\"检索工具 search_docs 连续 3 次返回“检索服务超时”，未能获得任何检索结果\", \"未读取到任何文档，缺少工卡（工作证）遗失补办流程、办理部门、所需材料与费用等制度原文\"], \"clarifying_question\": null, \"clarify_options\": null}, \"remaining_steps\": 6}",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 4910
+}

@@ -1,0 +1,137 @@
+{
+  "run_id": "5fb57b",
+  "question": "工卡丢了怎么补办？",
+  "status": "answered",
+  "status_label": "已回答",
+  "answer": "工卡遗失后，请立即在 OA 系统「行政服务-工卡补办」提交补办申请。补办需缴纳工本费 27 元，行政部在 3 个工作日内完成制卡，制卡完成后员工凭工号到前台领取新卡。",
+  "citations": [
+    {
+      "doc_id": "D06",
+      "para_id": "D06#p1",
+      "title": "工卡（门禁卡）管理规定",
+      "version_date": "2024-02-01",
+      "quote": "工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。"
+    },
+    {
+      "doc_id": "D06",
+      "para_id": "D06#p2",
+      "title": "工卡（门禁卡）管理规定",
+      "version_date": "2024-02-01",
+      "quote": "补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台领取。"
+    }
+  ],
+  "conflicts": [],
+  "gaps": [
+    "知识库中《工卡（门禁卡）管理规定》仅规定补办申请、费用与制卡时限，未说明遗失后是否需先挂失/冻结原卡，也未说明领取是否需携带其他证件。"
+  ],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [
+    "D06#p1",
+    "D06#p2"
+  ],
+  "steps_used": 6,
+  "max_steps": 10,
+  "provider": {
+    "name": "openai_compat",
+    "model": "deepseek-flash",
+    "is_mock": false
+  },
+  "kb": "default",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "工卡补办"
+      },
+      "reason": "检索工卡补办流程",
+      "ok": true,
+      "observation_summary": "命中 2 条：D06#p1[工卡,卡补,补办]、D06#p2[工卡,补办]",
+      "observation": "{\"ok\": true, \"query\": \"工卡补办\", \"query_terms\": [\"工卡\", \"卡补\", \"补办\"], \"hits\": [{\"doc_id\": \"D06\", \"para_id\": \"D06#p1\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 7.7169, \"matched_terms\": [\"工卡\", \"卡补\", \"补办\"], \"preview\": \"工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。\"}, {\"doc_id\": \"D06\", \"para_id\": \"D06#p2\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 4.1097, \"matched_terms\": [\"工卡\", \"补办\"], \"preview\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台\"}], \"remaining_steps\": 9}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "search_docs",
+      "args": {
+        "query": "工卡遗失 门禁卡 挂失"
+      },
+      "reason": "用同义词补充检索",
+      "ok": true,
+      "observation_summary": "命中 2 条：D06#p1[工卡,卡遗,遗失,门禁,禁卡]、D06#p2[工卡,门禁,禁卡]",
+      "observation": "{\"ok\": true, \"query\": \"工卡遗失 门禁卡 挂失\", \"query_terms\": [\"工卡\", \"卡遗\", \"遗失\", \"门禁\", \"禁卡\", \"挂失\"], \"hits\": [{\"doc_id\": \"D06\", \"para_id\": \"D06#p1\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 12.2241, \"matched_terms\": [\"工卡\", \"卡遗\", \"遗失\", \"门禁\", \"禁卡\"], \"preview\": \"工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。\"}, {\"doc_id\": \"D06\", \"para_id\": \"D06#p2\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 5.7668, \"matched_terms\": [\"工卡\", \"门禁\", \"禁卡\"], \"preview\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台\"}], \"remaining_steps\": 8}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D06"
+      },
+      "reason": "读取工卡管理规定原文",
+      "ok": true,
+      "observation_summary": "读取 D06《工卡（门禁卡）管理规定》2 段，版本 2024-02-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D06\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"scope\": \"全体员工\", \"supersedes\": \"\", \"paragraphs\": [{\"para_id\": \"D06#p1\", \"text\": \"工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。\"}, {\"para_id\": \"D06#p2\", \"text\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台领取。\"}], \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 4,
+      "action": "search_docs",
+      "args": {
+        "query": "工本费 制卡 领取"
+      },
+      "reason": "排查费用等冲突规定",
+      "ok": true,
+      "observation_summary": "命中 1 条：D06#p2[工本,本费,制卡,领取]",
+      "observation": "{\"ok\": true, \"query\": \"工本费 制卡 领取\", \"query_terms\": [\"工本\", \"本费\", \"制卡\", \"领取\"], \"hits\": [{\"doc_id\": \"D06\", \"para_id\": \"D06#p2\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 8.6292, \"matched_terms\": [\"工本\", \"本费\", \"制卡\", \"领取\"], \"preview\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台\"}], \"remaining_steps\": 6}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 5,
+      "action": "search_docs",
+      "args": {
+        "query": "OA 行政服务 申请 前台"
+      },
+      "reason": "排查其他行政流程文档",
+      "ok": true,
+      "observation_summary": "命中 2 条：D06#p1[OA,行政,政服,服务,申请]、D06#p2[行政,前台]",
+      "observation": "{\"ok\": true, \"query\": \"OA 行政服务 申请 前台\", \"query_terms\": [\"OA\", \"行政\", \"政服\", \"服务\", \"申请\", \"前台\"], \"hits\": [{\"doc_id\": \"D06\", \"para_id\": \"D06#p1\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 10.5372, \"matched_terms\": [\"OA\", \"行政\", \"政服\", \"服务\", \"申请\"], \"preview\": \"工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。\"}, {\"doc_id\": \"D06\", \"para_id\": \"D06#p2\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"score\": 3.8144, \"matched_terms\": [\"行政\", \"前台\"], \"preview\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台\"}], \"remaining_steps\": 5}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 6,
+      "action": "submit_answer",
+      "args": {
+        "status": "answered",
+        "answer": "工卡遗失后，请立即在 OA 系统「行政服务-工卡补办」提交补办申请。补办需缴纳工本费 27 元，行政部在 3 个工作日内完成制卡，制卡完成后员工凭工号到前台领取新卡。",
+        "citations": [
+          {
+            "para_id": "D06#p1",
+            "quote": "工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。"
+          },
+          {
+            "para_id": "D06#p2",
+            "quote": "补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台领取。"
+          }
+        ],
+        "gaps": [
+          "知识库中《工卡（门禁卡）管理规定》仅规定补办申请、费用与制卡时限，未说明遗失后是否需先挂失/冻结原卡，也未说明领取是否需携带其他证件。"
+        ]
+      },
+      "reason": "已读D06两条相关段落，无冲突规定",
+      "ok": true,
+      "observation_summary": "已接受：answered",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"answered\", \"answer\": \"工卡遗失后，请立即在 OA 系统「行政服务-工卡补办」提交补办申请。补办需缴纳工本费 27 元，行政部在 3 个工作日内完成制卡，制卡完成后员工凭工号到前台领取新卡。\", \"citations\": [{\"doc_id\": \"D06\", \"para_id\": \"D06#p1\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"quote\": \"工卡遗失后，员工应立即在 OA 系统「行政服务-工卡补办」提交申请。\"}, {\"doc_id\": \"D06\", \"para_id\": \"D06#p2\", \"title\": \"工卡（门禁卡）管理规定\", \"version_date\": \"2024-02-01\", \"quote\": \"补办工卡收取工本费 27 元，行政部在 3 个工作日内完成制卡，员工凭工号到前台领取。\"}], \"conflicts\": null, \"gaps\": [\"知识库中《工卡（门禁卡）管理规定》仅规定补办申请、费用与制卡时限，未说明遗失后是否需先挂失/冻结原卡，也未说明领取是否需携带其他证件。\"], \"clarifying_question\": null, \"clarify_opt",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 6743
+}

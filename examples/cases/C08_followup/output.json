@@ -1,0 +1,112 @@
+{
+  "run_id": "83c614",
+  "question": "那试用期的呢？",
+  "status": "answered",
+  "status_label": "已回答",
+  "answer": "试用期员工不享受带薪年休假，如需休息可申请事假。",
+  "citations": [
+    {
+      "doc_id": "D03",
+      "para_id": "D03#p2",
+      "title": "年休假管理规定",
+      "version_date": "2024-01-01",
+      "quote": "试用期员工不享受带薪年休假，如需休息可申请事假。"
+    }
+  ],
+  "conflicts": [],
+  "gaps": [],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [
+    "D03#p1",
+    "D03#p2",
+    "D03#p3"
+  ],
+  "steps_used": 5,
+  "max_steps": 10,
+  "provider": {
+    "name": "openai_compat",
+    "model": "deepseek-flash",
+    "is_mock": false
+  },
+  "kb": "default",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "试用期 年休假",
+        "top_k": 5
+      },
+      "reason": "查试用期年休假规定",
+      "ok": true,
+      "observation_summary": "命中 3 条：D03#p2[试用,用期,年休,休假]、D03#p1[年休,休假]、D03#p3[年休,休假]",
+      "observation": "{\"ok\": true, \"query\": \"试用期 年休假\", \"query_terms\": [\"试用\", \"用期\", \"年休\", \"休假\"], \"hits\": [{\"doc_id\": \"D03\", \"para_id\": \"D03#p2\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 9.4629, \"matched_terms\": [\"试用\", \"用期\", \"年休\", \"休假\"], \"preview\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\"}, {\"doc_id\": \"D03\", \"para_id\": \"D03#p1\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 4.7615, \"matched_terms\": [\"年休\", \"休假\"], \"preview\": \"正式员工累计工作满 1 年不满 10 年的，年休假 5 天；满 10 年不满 2\"}, {\"doc_id\": \"D03\", \"para_id\": \"D03#p3\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 4.3647, \"matched_terms\": [\"年休\", \"休假\"]",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "search_docs",
+      "args": {
+        "query": "年休假 天数 累计工作年限",
+        "top_k": 5
+      },
+      "reason": "核对年休假天数原文",
+      "ok": true,
+      "observation_summary": "命中 3 条：D03#p1[年休,休假,累计,计工,工作]、D03#p2[年休,休假]、D03#p3[年休,休假]",
+      "observation": "{\"ok\": true, \"query\": \"年休假 天数 累计工作年限\", \"query_terms\": [\"年休\", \"休假\", \"天数\", \"累计\", \"计工\", \"工作\", \"作年\", \"年限\"], \"hits\": [{\"doc_id\": \"D03\", \"para_id\": \"D03#p1\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 11.0867, \"matched_terms\": [\"年休\", \"休假\", \"累计\", \"计工\", \"工作\"], \"preview\": \"正式员工累计工作满 1 年不满 10 年的，年休假 5 天；满 10 年不满 2\"}, {\"doc_id\": \"D03\", \"para_id\": \"D03#p2\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 4.3647, \"matched_terms\": [\"年休\", \"休假\"], \"preview\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\"}, {\"doc_id\": \"D03\", \"para_id\": \"D03#p3\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": ",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D03"
+      },
+      "reason": "读取年休假规定原文与元数据",
+      "ok": true,
+      "observation_summary": "读取 D03《年休假管理规定》3 段，版本 2024-01-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D03\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"scope\": \"全体员工\", \"supersedes\": \"\", \"paragraphs\": [{\"para_id\": \"D03#p1\", \"text\": \"正式员工累计工作满 1 年不满 10 年的，年休假 5 天；满 10 年不满 20 年的，年休假 10 天。\"}, {\"para_id\": \"D03#p2\", \"text\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\"}, {\"para_id\": \"D03#p3\", \"text\": \"当年未休完的年休假最多可顺延至次年 3 月 31 日。\"}], \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 4,
+      "action": "search_docs",
+      "args": {
+        "query": "员工手册 试用期 假期",
+        "top_k": 4
+      },
+      "reason": "排查其他文档对试用期假期的规定",
+      "ok": true,
+      "observation_summary": "命中 1 条：D03#p2[员工,试用,用期]",
+      "observation": "{\"ok\": true, \"query\": \"员工手册 试用期 假期\", \"query_terms\": [\"员工\", \"工手\", \"手册\", \"试用\", \"用期\", \"假期\"], \"hits\": [{\"doc_id\": \"D03\", \"para_id\": \"D03#p2\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"score\": 5.3175, \"matched_terms\": [\"员工\", \"试用\", \"用期\"], \"preview\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\"}], \"remaining_steps\": 6}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 5,
+      "action": "submit_answer",
+      "args": {
+        "status": "answered",
+        "answer": "试用期员工不享受带薪年休假，如需休息可申请事假。",
+        "citations": [
+          {
+            "para_id": "D03#p2",
+            "quote": "试用期员工不享受带薪年休假，如需休息可申请事假。"
+          }
+        ]
+      },
+      "reason": "D03原文明确试用期无年休假",
+      "ok": true,
+      "observation_summary": "已接受：answered",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"answered\", \"answer\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\", \"citations\": [{\"doc_id\": \"D03\", \"para_id\": \"D03#p2\", \"title\": \"年休假管理规定\", \"version_date\": \"2024-01-01\", \"quote\": \"试用期员工不享受带薪年休假，如需休息可申请事假。\"}], \"conflicts\": null, \"gaps\": null, \"clarifying_question\": null, \"clarify_options\": null}, \"remaining_steps\": 5}",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 4805
+}

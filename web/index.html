@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>溯源问答 Agent</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>溯源问答 Agent</h1>
+  <span id="model-badge" class="badge"></span>
+  <span id="mock-banner" class="mock-banner" hidden>⚠ Mock 模式：仅验证流程，不证明决策效果</span>
+</header>
+
+<main>
+  <section id="chat-panel">
+    <div id="chat"></div>
+    <div id="input-row">
+      <input id="question" type="text" maxlength="500" placeholder="输入问题……" autocomplete="off">
+      <button id="ask-btn">提问</button>
+    </div>
+  </section>
+
+  <section id="timeline-panel">
+    <div class="panel-title">决策时间线 <span id="steps-bar"></span></div>
+    <ol id="timeline"></ol>
+    <button id="export-btn" disabled>导出 Trace JSON</button>
+  </section>
+</main>
+
+<section id="console">
+  <span class="console-label">评审控制台</span>
+  <label>预设用例 <select id="case-select"><option value="">—</option></select></label>
+  <label>知识库 <select id="kb-select"></select></label>
+  <label>故障 <select id="fault-select">
+    <option value="">无</option>
+    <option value="search_once">检索失败 1 次</option>
+    <option value="search_always">检索持续失败</option>
+    <option value="read_once">读取失败 1 次</option>
+  </select></label>
+  <label>步数上限 <input id="max-steps" type="number" min="1" max="12" value="10"></label>
+  <label><input id="force-mock" type="checkbox"> 强制 Mock</label>
+  <button id="reset-btn">新会话</button>
+</section>
+
+<aside id="drawer" hidden>
+  <div id="drawer-head"><span id="drawer-title"></span><button id="drawer-close">×</button></div>
+  <div id="drawer-meta"></div>
+  <div id="drawer-body"></div>
+</aside>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>

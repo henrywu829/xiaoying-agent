@@ -1,0 +1,88 @@
+{
+  "run_id": "4348e3",
+  "question": "报销期限是多久？",
+  "status": "answered",
+  "status_label": "已回答",
+  "answer": "第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "para_id": "D01#p2",
+      "title": "费用报销管理办法",
+      "version_date": "2023-01-01",
+      "quote": "第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。"
+    }
+  ],
+  "conflicts": [],
+  "gaps": [],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [
+    "D01#p1",
+    "D01#p2",
+    "D01#p3"
+  ],
+  "steps_used": 3,
+  "max_steps": 10,
+  "provider": {
+    "name": "mock",
+    "model": "mock-local",
+    "is_mock": true
+  },
+  "kb": "no_conflict",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "报销期限是多久？",
+        "top_k": 4
+      },
+      "reason": "先检索相关制度",
+      "ok": true,
+      "observation_summary": "命中 1 条：D01#p2[报销,销期,期限]",
+      "observation": "{\"ok\": true, \"query\": \"报销期限是多久？\", \"query_terms\": [\"报销\", \"销期\", \"期限\", \"限是\", \"是多\"], \"hits\": [{\"doc_id\": \"D01\", \"para_id\": \"D01#p2\", \"title\": \"费用报销管理办法\", \"version_date\": \"2023-01-01\", \"score\": 6.3645, \"matched_terms\": [\"报销\", \"销期\", \"期限\"], \"preview\": \"第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。\"}], \"remaining_steps\": 9}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "read_doc",
+      "args": {
+        "doc_id": "D01"
+      },
+      "reason": "读取命中文档原文",
+      "ok": true,
+      "observation_summary": "读取 D01《费用报销管理办法》3 段，版本 2023-01-01，适用：全体员工",
+      "observation": "{\"ok\": true, \"doc_id\": \"D01\", \"title\": \"费用报销管理办法\", \"version_date\": \"2023-01-01\", \"scope\": \"全体员工\", \"supersedes\": \"\", \"paragraphs\": [{\"para_id\": \"D01#p1\", \"text\": \"第一条 为规范公司费用报销管理，制定本办法。\"}, {\"para_id\": \"D01#p2\", \"text\": \"第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。\"}, {\"para_id\": \"D01#p3\", \"text\": \"第三条 报销须提供合规发票，单张发票金额超过 5000 元需部门负责人审批。\"}], \"remaining_steps\": 8}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "submit_answer",
+      "args": {
+        "status": "answered",
+        "answer": "第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。",
+        "citations": [
+          {
+            "para_id": "D01#p2",
+            "quote": "第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。"
+          }
+        ],
+        "conflicts": [],
+        "gaps": [],
+        "clarifying_question": "",
+        "clarify_options": []
+      },
+      "reason": "已获得原文，引用段落全文作答",
+      "ok": true,
+      "observation_summary": "已接受：answered",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"answered\", \"answer\": \"第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。\", \"citations\": [{\"doc_id\": \"D01\", \"para_id\": \"D01#p2\", \"title\": \"费用报销管理办法\", \"version_date\": \"2023-01-01\", \"quote\": \"第二条 报销期限：员工应在费用发生之日起 30 天内提交报销申请，逾期不予受理。\"}], \"conflicts\": [], \"gaps\": [], \"clarifying_question\": \"\", \"clarify_options\": []}, \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 0
+}

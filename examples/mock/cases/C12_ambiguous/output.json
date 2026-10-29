@@ -1,0 +1,76 @@
+{
+  "run_id": "110816",
+  "question": "这个要多久？",
+  "status": "no_evidence",
+  "status_label": "资料不足或超出范围",
+  "answer": "知识库中没有与该问题相关的资料，无法回答。",
+  "citations": [],
+  "conflicts": [],
+  "gaps": [
+    "缺少与问题相关的制度或产品文档"
+  ],
+  "clarifying_question": "",
+  "clarify_options": [],
+  "evidence_read": [],
+  "steps_used": 3,
+  "max_steps": 10,
+  "provider": {
+    "name": "mock",
+    "model": "mock-local",
+    "is_mock": true
+  },
+  "kb": "default",
+  "faults": {},
+  "trace": [
+    {
+      "type": "step",
+      "step": 1,
+      "action": "search_docs",
+      "args": {
+        "query": "这个要多久？",
+        "top_k": 4
+      },
+      "reason": "先检索相关制度",
+      "ok": true,
+      "observation_summary": "无命中（词项：这个、个要、要多）",
+      "observation": "{\"ok\": true, \"query\": \"这个要多久？\", \"query_terms\": [\"这个\", \"个要\", \"要多\"], \"hits\": [], \"remaining_steps\": 9, \"note\": \"no_match：没有段落命中足够的查询词项；预览不可引用，请换用制度/产品术语改写或提交 no_evidence\"}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 2,
+      "action": "search_docs",
+      "args": {
+        "query": "这个要",
+        "top_k": 4
+      },
+      "reason": "无命中，去疑问词改写重搜",
+      "ok": true,
+      "observation_summary": "无命中（词项：这个、个要）",
+      "observation": "{\"ok\": true, \"query\": \"这个要\", \"query_terms\": [\"这个\", \"个要\"], \"hits\": [], \"remaining_steps\": 8, \"note\": \"no_match：没有段落命中足够的查询词项；预览不可引用，请换用制度/产品术语改写或提交 no_evidence\"}",
+      "elapsed_ms": 0
+    },
+    {
+      "type": "step",
+      "step": 3,
+      "action": "submit_answer",
+      "args": {
+        "status": "no_evidence",
+        "answer": "知识库中没有与该问题相关的资料，无法回答。",
+        "gaps": [
+          "缺少与问题相关的制度或产品文档"
+        ],
+        "citations": [],
+        "conflicts": [],
+        "clarifying_question": "",
+        "clarify_options": []
+      },
+      "reason": "多次检索无结果",
+      "ok": true,
+      "observation_summary": "已接受：no_evidence",
+      "observation": "{\"accepted\": true, \"submission\": {\"status\": \"no_evidence\", \"answer\": \"知识库中没有与该问题相关的资料，无法回答。\", \"citations\": [], \"conflicts\": [], \"gaps\": [\"缺少与问题相关的制度或产品文档\"], \"clarifying_question\": \"\", \"clarify_options\": []}, \"remaining_steps\": 7}",
+      "elapsed_ms": 0
+    }
+  ],
+  "elapsed_ms": 0
+}
