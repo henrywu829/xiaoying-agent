@@ -12,7 +12,7 @@
 uv venv --python 3.12          # Python ≥ 3.11 都行
 source .venv/bin/activate
 uv pip install -r requirements.txt
-cp .env.example .env       # 写入 LLM_API_KEY ；不填自动进入演示模式
+cp env.sample .env         # 写入 LLM_API_KEY ；不填自动进入演示模式
 uvicorn kbqa.api:app --app-dir src --port 8000
 ```
 
